@@ -2,9 +2,8 @@
 
 ![](./src/images/logo-paleblue-candara_215px.png)
 
-**Shiuli** project provides a simple configurable landing page for REST APIs.
-
-Shiuli is a collection of HTML, JavaScript, and CSS files package as a WebJars.
+**Shiuli** project provides a simple configurable landing page for REST APIs. It's a collection 
+of HTML, JavaScript, and CSS files packaged as a WebJars.
 
 ## Get Started
 TODO
