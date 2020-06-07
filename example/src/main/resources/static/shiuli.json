@@ -7,44 +7,68 @@
   "menu": [
     {
       "name": "Swagger",
-      "href": "swagger-ui.html",
-      "embed": "true"
+      "endpoint": "swagger-ui.html",
+      "type": "html",
+      "embed": true
     },
     {
       "name": "Metrics",
-      "href": "patra-ui.html"
+      "endpoint": "patra-ui.html",
+      "type": "html",
+      "embed": false
     },
     {
       "name": "NY Times",
-      "href": "https://www.nytimes.com",
-      "embed": "true"
+      "endpoint": "https://www.nytimes.com",
+      "type": "html",
+      "embed": true
+    }, {
+      "name": "Health",
+      "endpoint": "health",
+      "type": "json",
+      "embed": true
     }
   ],
   "links": [
     {
       "name": "Health",
       "endpoint": "health",
-      "type": "json"
+      "type": "json",
+      "embed": true
     },
     {
       "name": "Beans",
       "endpoint": "beans",
-      "type": "json"
+      "type": "json",
+      "embed": false
     },
     {
       "name": "Info",
       "endpoint": "info",
-      "type": "json"
+      "type": "json",
+      "embed": true
     },
     {
       "name": "Environment",
       "endpoint": "env",
-      "type": "json"
+      "type": "json",
+      "embed": true
     },
     {
       "name": "Mappings",
       "endpoint": "mappings",
-      "type": "json"
+      "type": "json",
+      "embed": true
+    }, {
+      "name": "NY Times",
+      "endpoint": "https://www.nytimes.com",
+      "type": "html",
+      "embed": true
+    }, {
+      "name": "NPR",
+      "endpoint": "https://www.npr.org/",
+      "type": "html",
+      "embed": false
     }
   ]
 }

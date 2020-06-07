@@ -12,7 +12,7 @@
      * @param {string} viewDivId
      */
     shiuli.init = function (navBrand, navUlId, leftDivId, viewDivId) {
-        _loadJSON(function (response) {
+        _loadFile("application/json", CONFIG_FILE, function (response) {
             // parse JSON string into object
             _jsonObj = JSON.parse(response);
             console.log(_jsonObj);
@@ -23,7 +23,6 @@
             _populateLinks(_jsonObj, leftDivId);
             _viewDivId = viewDivId;
         });
-
     };
 
     shiuli.showMessage = function() {
@@ -48,34 +47,6 @@
                 $(child).attr('style', 'width:100%;height:100%');
             }
         }
-    }
-
-    function _loadJSON(callback) {
-        let xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-        xobj.open('GET', CONFIG_FILE, true);
-        xobj.onreadystatechange = function () {
-            if (xobj.readyState === 4 && xobj.status === 200) {
-                // Required use of an anonymous callback
-                // as .open() will NOT return a value but simply returns undefined in asynchronous mode
-                callback(xobj.responseText);
-            }
-        };
-        xobj.send(null);
-    }
-
-    function _loadFile(mime, fileName, callback) {
-        let xobj = new XMLHttpRequest();
-        xobj.overrideMimeType(mime);
-        xobj.open('GET', fileName, true);
-        xobj.onreadystatechange = function () {
-            if (xobj.readyState === 4 && xobj.status === 200) {
-                // Required use of an anonymous callback
-                // as .open() will NOT return a value but simply returns undefined in asynchronous mode
-                callback(xobj.responseText);
-            }
-        };
-        xobj.send(null);
     }
 
     function _populateTitle(jsonObj, navBrand) {
@@ -122,27 +93,22 @@
             $li.append($a);
             $a.text(item["name"])
 
-            let embed = item["embed"];
-            if (embed && 'TRUE' === embed.toUpperCase()) {
-                $a.attr('href', '#');
-                $a.attr('onclick', 'shiuli.showHtml(\'' + item["href"] + '\')');
-            } else {
-                $a.attr('href', item["href"]);
-            }
+            _addOnclick($a, null, item["endpoint"], item["type"], item["embed"]);
         }
     }
 
     function _populateLinks(jsonObj, leftDivId) {
         _addLink(leftDivId, 1, 'Home', 'shiuli.showMessage()', null, null);
 
-        let links = jsonObj["links"];
-        for (let i = 0; i < links.length; i++) {
-            let link = links[i];
-            _addLink(leftDivId, i + 2, link["name"], null, link["endpoint"], link["type"]);
+        let items = jsonObj["links"];
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i];
+            _addLink(leftDivId, i + 2, item["name"], null,
+                item["endpoint"], item["type"], item["embed"]);
         }
     }
 
-    function _addLink(leftDivId, id, name, methodName, endpoint, type) {
+    function _addLink(leftDivId, id, name, methodName, endpoint, type, embed) {
         let $li = $('<li/>');
         $(leftDivId).append($li);
 
@@ -160,34 +126,37 @@
         $li.append($a);
         $a.text(' ' + name);
         $a.attr('id', id);
-        $a.attr('href', '#');
+
         $a.addClass('shiuli');
 
-        if (methodName) {
-            $a.attr('onclick', methodName);
-        } else {
-            $a.attr('onclick', 'shiuli.displayResponse(\'' + endpoint + '\', \'' + type + '\')');
-        }
+        _addOnclick($a, methodName, endpoint, type, embed)
     }
 
-    function _processRequest(url, type) {
-        $.ajax({
-            url: url,
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-Requested-With', 'BasicAuthClient');
-            },
-            success: function (data) {
-                if (type && 'JSON' === type.toUpperCase()) {
-                    _displayView(_formatJson(data));
+    function _addOnclick($a, methodName, endpoint, type, embed) {
+        if (methodName) {
+            $a.attr('href', '#');
+            $a.attr('onclick', methodName);
+        } else {
+            if (type && 'HTML' === type.toUpperCase()) {
+                if (!embed) {
+                    $a.attr('href', endpoint);
+                    $a.attr('target', '_blank');
+                    $a.attr('rel', 'noopener noreferrer');
                 } else {
-                    _displayView(data);
+                    $a.attr('href', '#');
+                    $a.attr('onclick', 'shiuli.showHtml(\'' + endpoint + '\')');
                 }
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                _displayView("FAILURE: " + xhr.status + "\nERROR: " + thrownError, "in_log");
-            },
-            async: false
-        });
+            } else {
+               if (!embed) {
+                   $a.attr('href', endpoint);
+                   $a.attr('target', '_blank');
+                   $a.attr('rel', 'noopener noreferrer');
+               } else {
+                   $a.attr('href', '#');
+                   $a.attr('onclick', 'shiuli.displayResponse(\'' + endpoint + '\', \'' + type + '\')');
+               }
+            }
+        }
     }
 
     /**
@@ -235,7 +204,40 @@
         } else {
             $(_viewDivId).append('<span class="default_log">' + message + '</span><br>');
         }
+    }
 
+    function _loadFile(mime, fileName, callback) {
+        let xobj = new XMLHttpRequest();
+        xobj.overrideMimeType(mime);
+        xobj.open('GET', fileName, true);
+        xobj.onreadystatechange = function () {
+            if (xobj.readyState === 4 && xobj.status === 200) {
+                // Required use of an anonymous callback
+                // as .open() will NOT return a value but simply returns undefined in asynchronous mode
+                callback(xobj.responseText);
+            }
+        };
+        xobj.send(null);
+    }
+
+    function _processRequest(url, type) {
+        $.ajax({
+            url: url,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-Requested-With', 'BasicAuthClient');
+            },
+            success: function (data) {
+                if (type && 'JSON' === type.toUpperCase()) {
+                    _displayView(_formatJson(data));
+                } else {
+                    _displayView(data);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                _displayView("FAILURE: " + xhr.status + "\nERROR: " + thrownError, "in_log");
+            },
+            async: false
+        });
     }
 
     const CONFIG_FILE = 'shiuli.json';
