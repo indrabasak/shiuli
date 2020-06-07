@@ -1,0 +1,50 @@
+{
+  "title": "Shiuli Example",
+  "message": {
+    "text": "This is a Shiuli configured landing page of an example Spring Boot application.",
+    "path": "welcome.md"
+  },
+  "menu": [
+    {
+      "name": "Swagger",
+      "href": "swagger-ui.html",
+      "embed": "true"
+    },
+    {
+      "name": "Metrics",
+      "href": "patra-ui.html"
+    },
+    {
+      "name": "NY Times",
+      "href": "https://www.nytimes.com",
+      "embed": "true"
+    }
+  ],
+  "links": [
+    {
+      "name": "Health",
+      "endpoint": "health",
+      "type": "json"
+    },
+    {
+      "name": "Beans",
+      "endpoint": "beans",
+      "type": "json"
+    },
+    {
+      "name": "Info",
+      "endpoint": "info",
+      "type": "json"
+    },
+    {
+      "name": "Environment",
+      "endpoint": "env",
+      "type": "json"
+    },
+    {
+      "name": "Mappings",
+      "endpoint": "mappings",
+      "type": "json"
+    }
+  ]
+}

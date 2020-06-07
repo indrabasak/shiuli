@@ -1,0 +1,32 @@
+#Exposes Spring actuator endpoints
+management:
+  health:
+    defaults:
+      enabled: true
+    diskspace:
+      enabled: true
+    probes:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      group:
+        readiness:
+          include: readinessProbe
+          show-details: always
+
+info:
+  artifact: "@project.artifactId@"
+  name: "@project.name@"
+  description: "@project.description@"
+  version: "@project.version@"
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true

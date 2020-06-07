@@ -1,0 +1,140 @@
+html {
+    font-size: 90%;
+}
+
+body {
+    font-family: 'Source Sans Pro', 'Arial', sans-serif;
+    margin: 0;
+}
+
+/**********************************/
+/* Header                         */
+/**********************************/
+.navbar-brand {
+    padding: 10px 10px;
+    font-family: 'Galdeano', sans-serif;
+    font-size: 2.3em;
+}
+
+/* distance between logo and brand */
+.navbar-brand > img {
+    margin-right: 20px;
+}
+
+.custom-navbar {
+    background: #333333;
+}
+
+/**********************************/
+/* Main                           */
+/**********************************/
+ul.shiuli {
+    list-style-type: none;
+}
+
+/*a.three:link {color:#ff0000;}*/
+/*a.three:visited {color:#0000ff;}*/
+a.shiuli:hover {
+    background: #6b6b6b;
+}
+
+/*a.shiuli:link {*/
+/*    color:#ff0000;*/
+/*}*/
+
+/*a.shiuli:visited {*/
+/*    color:#0000ff;*/
+/*}*/
+
+/*a.shiuli:hover {*/
+/*    color:#ffcc00;*/
+/*}*/
+
+.left {
+    align-items: center;
+    background: #f6f6f6;
+
+    padding: 1em 1em 0 1em;
+    box-sizing: border-box;
+    overflow: auto;
+    box-shadow: 6px 0px 5px -2px #e6e6e6;
+
+    z-index: 999;
+}
+
+.icon-gray {
+    color: #b2b1b1;
+}
+
+.right {
+    padding: 1em 1em 0 1em;
+    resize: both;
+    overflow: auto;
+    width: 100%
+}
+
+/*.custom-list > a:target {*/
+/*    color:red;*/
+/*    outline:0;*/
+/*}*/
+
+
+/* right panel output formatting */
+.default_log {
+    padding-left: 5px;
+    color: black;
+    white-space: pre;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.thread_log {
+    padding-left: 5px;
+    color: black;
+    white-space: pre-wrap;
+    font-family: monospace;
+    word-wrap: break-word;
+}
+
+.in_log {
+    color: blue;
+    padding-left: 5px;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.out_log {
+    color: green;
+    padding-left: 5px;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+/**********************************/
+/* JSON Syntax Higlighting        */
+/**********************************/
+pre {
+    outline: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px;
+}
+
+.string {
+    color: green;
+}
+
+.number {
+    color: blue;
+}
+
+.boolean {
+    color: orange;
+}
+
+.null {
+    color: darkred;
+}
+
+.key {
+    color: black;
+}
