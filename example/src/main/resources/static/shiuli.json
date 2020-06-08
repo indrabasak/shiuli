@@ -59,12 +59,20 @@
       "endpoint": "mappings",
       "type": "json",
       "embed": true
-    }, {
+    },
+    {
+      "name": "Prometheus",
+      "endpoint": "prometheus",
+      "type": "string",
+      "embed": true
+    },
+    {
       "name": "NY Times",
       "endpoint": "https://www.nytimes.com",
       "type": "html",
       "embed": true
-    }, {
+    },
+    {
       "name": "NPR",
       "endpoint": "https://www.npr.org/",
       "type": "html",

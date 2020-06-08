@@ -22,12 +22,30 @@
             _populateMenu(_jsonObj, navUlId);
             _populateLinks(_jsonObj, leftDivId);
             _viewDivId = viewDivId;
+
+            let $home_link = $("#link-1");
+            $home_link.click();
         });
     };
 
+    shiuli.highlight = function(anchor) {
+       let $anchor = $(anchor);
+       $anchor.removeClass("shiuli");
+       $anchor.addClass('shiuli-selected');
+
+       if (_currentSelectedItem) {
+           if (!$(_currentSelectedItem).is($anchor)) {
+               $(_currentSelectedItem).removeClass('shiuli-selected');
+               $(_currentSelectedItem).addClass('shiuli');
+           }
+       }
+
+       _currentSelectedItem = anchor;
+    }
+
     shiuli.showMessage = function() {
         _clearView();
-       _displayView(_message);
+       _displayView(_message, "view-landing");
     }
 
     shiuli.displayResponse = function(endpoint, type) {
@@ -64,11 +82,12 @@
             if (path) {
                 _loadFile("text/plain", path, function (response) {
                     let msg = response;
-                    console.log(msg);
                     if (msg) {
                         let converter = new showdown.Converter();
                         _message = converter.makeHtml(msg);
-                        console.log(_message);
+
+                        let $home_link = $("#link-1");
+                        $home_link.click();
                     }
                 });
             } else {
@@ -83,6 +102,18 @@
     function _populateMenu(jsonObj, navUlId) {
         let items = jsonObj["menu"];
 
+        let $li = $('<li/>');
+        $li.addClass('nav-item');
+        $li.addClass('active')
+        $(navUlId).append($li);
+
+        let $a = $('<a/>');
+        $a.addClass('nav-shiuli');
+        $li.append($a);
+        $a.text('Home');
+
+        _addOnclick($a, 'menu-' + 1, 'shiuli.showMessage()', null, null, null);
+
         for (let i = 0; i < items.length; i++) {
             let item = items[i];
             let $li = $('<li/>');
@@ -90,26 +121,30 @@
             $(navUlId).append($li);
 
             let $a = $('<a/>');
+            $a.addClass('nav-shiuli');
             $li.append($a);
             $a.text(item["name"])
 
-            _addOnclick($a, null, item["endpoint"], item["type"], item["embed"]);
+            let count = i + 2;
+            _addOnclick($a, 'menu-' + count, null, item["endpoint"], item["type"], item["embed"]);
         }
     }
 
     function _populateLinks(jsonObj, leftDivId) {
-        _addLink(leftDivId, 1, 'Home', 'shiuli.showMessage()', null, null);
+        _addLink(leftDivId, 'link-' + 1, 'Home', 'shiuli.highlight(this);shiuli.showMessage()', null, null, null);
 
         let items = jsonObj["links"];
         for (let i = 0; i < items.length; i++) {
             let item = items[i];
-            _addLink(leftDivId, i + 2, item["name"], null,
+            let count = i + 2;
+            _addLink(leftDivId, 'link-' + count, item["name"], null,
                 item["endpoint"], item["type"], item["embed"]);
         }
     }
 
     function _addLink(leftDivId, id, name, methodName, endpoint, type, embed) {
         let $li = $('<li/>');
+        $li.addClass('shiuli');
         $(leftDivId).append($li);
 
         let $span = $('<span/>')
@@ -126,13 +161,12 @@
         $li.append($a);
         $a.text(' ' + name);
         $a.attr('id', id);
-
         $a.addClass('shiuli');
 
-        _addOnclick($a, methodName, endpoint, type, embed)
+        _addOnclick($a, id, methodName, endpoint, type, embed)
     }
 
-    function _addOnclick($a, methodName, endpoint, type, embed) {
+    function _addOnclick($a, id, methodName, endpoint, type, embed) {
         if (methodName) {
             $a.attr('href', '#');
             $a.attr('onclick', methodName);
@@ -144,7 +178,7 @@
                     $a.attr('rel', 'noopener noreferrer');
                 } else {
                     $a.attr('href', '#');
-                    $a.attr('onclick', 'shiuli.showHtml(\'' + endpoint + '\')');
+                    $a.attr('onclick', 'shiuli.highlight(this);shiuli.showHtml(\'' + endpoint + '\')');
                 }
             } else {
                if (!embed) {
@@ -153,7 +187,7 @@
                    $a.attr('rel', 'noopener noreferrer');
                } else {
                    $a.attr('href', '#');
-                   $a.attr('onclick', 'shiuli.displayResponse(\'' + endpoint + '\', \'' + type + '\')');
+                   $a.attr('onclick', 'shiuli.highlight(this);shiuli.displayResponse(\'' + endpoint + '\', \'' + type + '\')');
                }
             }
         }
@@ -202,7 +236,7 @@
         if (style) {
             $(_viewDivId).append('<span class="' + style + '">' + message + '</span><br>');
         } else {
-            $(_viewDivId).append('<span class="default_log">' + message + '</span><br>');
+            $(_viewDivId).append('<span class="view-default">' + message + '</span><br>');
         }
     }
 
@@ -234,7 +268,7 @@
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                _displayView("FAILURE: " + xhr.status + "\nERROR: " + thrownError, "in_log");
+                _displayView("FAILURE: " + xhr.status + "\nERROR: " + thrownError, "view-in");
             },
             async: false
         });
@@ -254,6 +288,8 @@
     let _viewDivId;
 
     let _message = DEFAULT_MESSAGE;
+
+    let _currentSelectedItem;
 
 
 }(window.shiuli = window.shiuli || {}, jQuery, showdown));

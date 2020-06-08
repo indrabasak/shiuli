@@ -138,6 +138,12 @@
             <artifactId>patra-web</artifactId>
             <version>${patra.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>1.5.1</version>
+        </dependency>
     </dependencies>
 
     <build>

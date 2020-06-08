@@ -25,6 +25,15 @@ body {
     background: #333333;
 }
 
+a.nav-shiuli {
+    color: #a19d9d;
+    text-decoration: none;
+}
+
+a.nav-shiuli:hover {
+    color: white;
+}
+
 /**********************************/
 /* Main                           */
 /**********************************/
@@ -32,10 +41,33 @@ ul.shiuli {
     list-style-type: none;
 }
 
+a.shiuli {
+    color: #555555;
+    text-decoration: none;
+}
+
+a.shiuli-selected {
+    color: #838585;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/*
+li.shiuli:hover {
+    background-color:#2EA620;
+}
+*/
+
 /*a.three:link {color:#ff0000;}*/
 /*a.three:visited {color:#0000ff;}*/
+
 a.shiuli:hover {
-    background: #6b6b6b;
+    color: #a19d9d;
+}
+
+a.shiuli:active {
+    color: white;
 }
 
 /*a.shiuli:link {*/
@@ -80,7 +112,15 @@ a.shiuli:hover {
 
 
 /* right panel output formatting */
-.default_log {
+.view-landing {
+    padding-left: 5px;
+    color: black;
+    white-space: pre;
+    //font-family: monospace;
+    font-size: 14px;
+}
+
+.view-default {
     padding-left: 5px;
     color: black;
     white-space: pre;
@@ -88,7 +128,7 @@ a.shiuli:hover {
     font-size: 13px;
 }
 
-.thread_log {
+.view-thread {
     padding-left: 5px;
     color: black;
     white-space: pre-wrap;
@@ -96,14 +136,14 @@ a.shiuli:hover {
     word-wrap: break-word;
 }
 
-.in_log {
+.view-in {
     color: blue;
     padding-left: 5px;
     font-family: monospace;
     font-size: 13px;
 }
 
-.out_log {
+.view-out {
     color: green;
     padding-left: 5px;
     font-family: monospace;
