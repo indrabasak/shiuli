@@ -9,22 +9,4 @@ baseurl: /shiuli
 logo: ./images/shiuli-title.png
 blog: https://indrabasak.github.io
 
-# Aux links for the upper right navigation
-aux_links:
-  "Just the Docs on GitHub":
-    - "//github.com/pmarsceill/just-the-docs"
-    
-# --- List of links in the navigation bar --- #
-
-navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
-
-
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
   
