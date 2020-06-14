@@ -23,6 +23,10 @@ to find out more on how to configure a webjar with a Spring application.
 
 The Shiuli landing page can be accessed at, `http://<host>:<port>/`
 
+Here's the default look and feeling of The Shiuli landing page.
+
+![](./images/default-landing-page.png)
+
 ## Custom Configuration
 You can custom configure the landing page by adding a file named `shiuli.json` 
 located within the `static` folder under the `resources` folder.
@@ -152,6 +156,10 @@ Here's a simple example of a `shiuli.json`,
   ]
 }
 ```
+
+Here's an example of Shiuli landing page after customization,
+
+![](./images/custom-landing-page.png)
 
 # Build
 * Check out the [project](https://github.com/indrabasak/shiuli).

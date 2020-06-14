@@ -2,6 +2,5 @@
 
 # Shiuli Example Application
 
-
-## Get Started
-Download all the HTML, JavaScript and CSS files from the [dist](dist) directory. 
+This is an example for **Shiuli**. **Shiuli** provides a simple configurable 
+landing page for REST APIs. You can more about Shiuli [here](https://github.com/indrabasak/shiuli).
