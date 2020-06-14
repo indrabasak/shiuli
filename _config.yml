@@ -7,6 +7,6 @@ description: A simple configurable landing page for REST APIs.
 
 author: Indra Basak
 
-logo: .images/shiuli-title.png
+logo: ./images/shiuli-title.png
 docs: https://github.com/indrabasak/shiuli/wiki
 blog: https://indrabasak.github.io
