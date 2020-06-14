@@ -1,5 +1,6 @@
 {
   "title": "Shiuli Example",
+  "logo": "./images/logo.png",
   "message": {
     "text": "This is a Shiuli configured landing page of an example Spring Boot application.",
     "path": "welcome.md"

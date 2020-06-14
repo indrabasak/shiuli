@@ -1,3 +1,5 @@
+![](images/title.jpg)
+
 # Shiuli Example Application
 
 

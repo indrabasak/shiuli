@@ -2,7 +2,7 @@
     'use strict';
 
     /**
-     * Initializes shiuli with the URL to fetch metrics
+     * Initializes shiuli with the URL to fetch the configuration file shiuli.json
      * @function
      * @name shiuli#init
      *
@@ -17,6 +17,7 @@
             _jsonObj = JSON.parse(response);
             console.log(_jsonObj);
 
+            _populateLogo(_jsonObj);
             _populateTitle(_jsonObj, navBrand);
             _populateMessage(_jsonObj);
             _populateMenu(_jsonObj, navUlId);
@@ -70,9 +71,16 @@
     function _populateTitle(jsonObj, navBrand) {
         let title = jsonObj["title"];
         $(navBrand).text('');
-        let $img = $('<img src=' + DEFAULT_LOGO + '/>');
+        let $img = $('<img src=' + _logo + '/>');
         $(navBrand).append($img);
         $(navBrand).append(title);
+    }
+
+    function _populateLogo(jsonObj) {
+        let logo = _jsonObj["logo"];
+        if (logo) {
+            _logo = logo;
+        }
     }
 
     function _populateMessage(jsonObj) {
@@ -276,7 +284,7 @@
 
     const CONFIG_FILE = 'shiuli.json';
 
-    const DEFAULT_LOGO = 'webjars/images/shiuli-logo-2.png';
+    const DEFAULT_LOGO = 'webjars/images/shiuli-logo.png';
 
     const DEFAULT_MESSAGE = '<h1>This is the landing page of Shiuli.</h1>';
 
@@ -286,6 +294,8 @@
     let _jsonObj;
 
     let _viewDivId;
+
+    let _logo = DEFAULT_LOGO;
 
     let _message = DEFAULT_MESSAGE;
 

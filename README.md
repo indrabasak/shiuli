@@ -1,8 +1,8 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Build Status][travis-badge]][travis-badge-url]
 
-![](./src/images/logo-paleblue-candara_215px.png)
+![](./images/shiuli-title.png)
 
-**Shiuli** project provides a simple configurable landing page for REST APIs. It's a collection 
+**Shiuli** provides a simple configurable landing page for REST APIs. It's a collection 
 of HTML, JavaScript, and CSS files packaged as a WebJars.
 
 ## Get Started
