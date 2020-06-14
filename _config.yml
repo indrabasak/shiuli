@@ -1,8 +1,8 @@
+theme: jekyll-theme-cayman
+
 title: Shiuli
 description: A simple configurable landing page for REST APIs.
 author: Indra Basak
-
-theme: jekyll-theme-midnight
 
 baseurl: /shiuli
 
