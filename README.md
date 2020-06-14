@@ -23,13 +23,13 @@ to find out more on how to configure a webjar with a Spring application.
 
 The Shiuli landing page can be accessed at, `http://<host>:<port>/`
 
-Here's the default look and feeling of The Shiuli landing page.
+Here's the default look and feeling of the Shiuli landing page.
 
 ![](./images/default-landing-page.png)
 
 ## Custom Configuration
 You can custom configure the landing page by adding a file named `shiuli.json` 
-located within the `static` folder under the `resources` folder.
+located under the `static` folder, which is under the `resources` directory.
 
 ```
 your-project
@@ -41,10 +41,10 @@ your-project
               |__ shiuli.json
 ```
 
-Here is a list of customizations you can do the landing page,
+The next few sections discuss ways to customize the landing page.
 
 ### Title 
-The title can be customized by adding a `title` field,
+The title can be customized by adding a `title` field in `shiuli.json`,
 ```json
 {
   "title": "Shiuli Example"
@@ -52,7 +52,7 @@ The title can be customized by adding a `title` field,
 ```
 
 ### Logo
-The logo can be customized by adding a `logo` field,
+The logo can be customized by adding a `logo` field in `shiuli.json`,
 ```json
 {
   "logo": "./images/logo.png"
@@ -63,8 +63,8 @@ The logo can be customized by adding a `logo` field,
 The message is the content which shows up on the main viewing panel when you
 first access the landing page. It can be configured in a couple of different
 ways. If you want a simple text to show up, just add a `text` field. If you want
-something elaborate, create a markdown page and specify the URL in a `path`
-field. 
+something elaborate, create a markdown page and specify the URL of the markdown
+file in the `path` field. 
 
 ```json
 {
@@ -97,24 +97,20 @@ You can add links on the navigation bar adding items in the `menu` field.
 }
 ```
 
-  - `name`: It's used for giving a name the link which appears on 
+  - `name`: It's used for giving a name the to the link which appears on 
   the nvaigation bar.
-  - `endpoint`: It's used for specifying the URL of the page you would like to 
+  - `endpoint`: It's used to specify the URL of the page you would like to 
   display. It can be relative or absolute.
-  - `type`: It's used to specify the type of content, e.g., `json`, `html`, or `text`.
-  It makes a difference if you wuld like display the content in the main viewing 
+  - `type`: It's used to specify the mime type of content, e.g., `json`, `html`, or `text`.
+  It plays a role on how the content is rendered if it's in the main viewing 
   panel.
   - `embed`: If the value is `true`, the content of the URL specified in the
   `endpoint` field will be displayed in the main display panel. If it's `false`,
   the content will be displayed in a separate browser window or tab.
  
 ### Link
-You can add add links on the left panel by adding the items in the `links` field.
-The items follow the same syntax as the menu item.
-
-```json
-
-```
+You can add links on the left panel by adding a link item in the `links` field.
+A link item follow the same syntax as the menu item.
 
 Here's a simple example of a `shiuli.json`,
 
