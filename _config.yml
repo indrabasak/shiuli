@@ -1,16 +1,11 @@
----
-layout: post
 title: Shiuli
----
+description: A simple configurable landing page for REST APIs.
+author: Indra Basak
+
 theme: jekyll-theme-midnight
 
 baseurl: /shiuli
 
-#title:
-description: A simple configurable landing page for REST APIs.
-
-author: Indra Basak
-
-logo: ./images/shiuli-title.png
-docs: https://github.com/indrabasak/shiuli/wiki
-blog: https://indrabasak.github.io
+navbar-links:
+  logo: ./images/shiuli-title.png
+  blog: https://indrabasak.github.io
