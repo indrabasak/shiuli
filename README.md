@@ -7,8 +7,7 @@ of HTML, JavaScript, and CSS files packaged as a WebJars.
 
 # Maven
 
-The current version is `1.0.0,` which is compatible with [Shiuli 1.0.0](https://indrabasak.github.io/shiuli/). To use
-the Shiuli, add the following dependency to your `pom.xml.`
+The current version is `1.0.0`. To use Shiuli, add the following dependency to your `pom.xml.`
 
 ```xml
 <dependency>
@@ -59,7 +58,7 @@ The logo can be customized by adding a `logo` field,
 ### Message
 The message is the content which shows up on the main viewing panel when you
 first access the landing page. It can be configured in a couple of different
-ways. If you want a simple text to show up, just a `text` field. If you want
+ways. If you want a simple text to show up, just add a `text` field. If you want
 something elaborate, create a markdown page and specify the URL in a `path`
 field. 
 
@@ -73,7 +72,45 @@ field.
 ```
 
 ### Menu
-TODO
+You can add links on the navigation bar adding items in the `menu` field.
+
+```json
+{
+  "menu": [
+    {
+      "name": "Swagger",
+      "endpoint": "swagger-ui.html",
+      "type": "html",
+      "embed": true
+    },
+    {
+      "name": "NY Times",
+      "endpoint": "https://www.nytimes.com",
+      "type": "html",
+      "embed": true
+    }
+  ]
+}
+```
+
+  - `name`: It's used for giving a name the link which appears on 
+  the nvaigation bar.
+  - `endpoint`: It's used for specifying the URL of the page you would like to 
+  display. It can be relative or absolute.
+  - `type`: It's used to specify the type of content, e.g., `json`, `html`, or `text`.
+  It makes a difference if you wuld like display the content in the main viewing 
+  panel.
+  - `embed`: If the value is `true`, the content of the URL specified in the
+  `endpoint` field will be displayed in the main display panel. If it's `false`,
+  the content will be displayed in a separate browser window or tab.
+ 
+### Link
+You can add add links on the left panel by adding the items in the `links` field.
+The items follow the same syntax as the menu item.
+
+```json
+
+```
 
 Here's a simple example of a `shiuli.json`,
 
@@ -107,9 +144,9 @@ Here's a simple example of a `shiuli.json`,
         "embed": true
       },
       {
-        "name": "Beans",
-        "endpoint": "beans",
-        "type": "json",
+        "name": "NPR",
+        "endpoint": "https://www.npr.org/",
+        "type": "html",
         "embed": false
       }
   ]
