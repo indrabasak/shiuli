@@ -6,6 +6,5 @@ author: Indra Basak
 
 baseurl: /shiuli
 
-navbar-links:
-  logo: ./images/shiuli-title.png
-  blog: https://indrabasak.github.io
+logo: ./images/shiuli-title.png
+blog: https://indrabasak.github.io
