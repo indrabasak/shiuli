@@ -13,7 +13,7 @@
         <module>example</module>
     </modules>
 
-    <url>https://indrabasak.github.io/patra-web/</url>
+    <url>https://github.com/indrabasak/shiuli</url>
 
     <licenses>
         <license>
@@ -31,11 +31,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/indrabasak/patra-web.git
-        </connection>
-        <developerConnection>scm:git:ssh://github.com:indrabasak/shiuli.git
-        </developerConnection>
-        <url>http://github.com/indrabasak/shiuli/tree/master</url>
+        <connection>scm:git:git://github.com/indrabasak/shiuli.git</connection>
+        <developerConnection>scm:git:ssh://github.com:indrabasak/shiuli.git</developerConnection>
+        <url>https://github.com/indrabasak/shiuli/tree/master</url>
     </scm>
 
     <build>
