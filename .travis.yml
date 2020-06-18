@@ -1,13 +1,18 @@
-# Travis Build File
 language: java
 jdk:
-  - openjdk11
+- openjdk11
 before_script:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script: mvn clean compile test
 notifications:
   email:
-    - indra.basak1@gmail.com
+  - indra.basak1@gmail.com
   on_success: change
   on_failure: always
   use_notice: true
+env:
+  global:
+    secure: R283xb4Y+hQ3wEQTaluT0nHvSumOt9a9EocAaGI5tuIWo11SvL2xtJjDxcft4yzRyUOfxVxnwreEh2OPQuhdfziSUlRtrbvXwYdiw3S1MkG3IahbxJay1ojkSceTbkvcCGIDBlrq3VIND6Ge0/17KRRW9hEFwsov6OzA8jLsvXNb1fjASNsmSWetWmWlojtYjVZkPFfUZGuaiWocfuS+lme1YzGWuHvacsyuHkd4otBUR076Cdf1zTbHYtvLQ04EhDHnB6gxHbxt5MpstpiZly8rBnbu0Zg9KhgzyNG67d/iD8gyJ17413jHzDRJY3X5USfyP1ZqwC6WMsVwGhsixTBCt5Gd2ZPno/b4oMPYVIcVPpHUTGe2hpnhX3E4QBB3RTmthgLtXPwfYeq/KZsjTt24QKijoYr3C/acCyocpLf2pWgKu06potMyo00moVqduLtgxcbZYM3HM+Uz9EFLGuxA3gdBiQJbi2Gx1psZXZgKeyAGEwUb7bfPqlUBnotAr4UaaDq7bHy3cEgJdLkSit43uyo2RnQeWsKgXP0hbSK/TugakEOvVTo2qdOw/XU3dG8rmkRfsVoxKPpe0BGyWF9DVGNQ1xxh8KGhj2lYzHwH9rQgBP92A9+XLEjxLQ5yZ8LLi2M82T4eqeLwblIgR2BeRjW2RKEAogyA1ShtjfU=
+before_install:
+- openssl aes-256-cbc -K $encrypted_0fb5a69e10c8_key -iv $encrypted_0fb5a69e10c8_iv
+  -in private.key.enc -out private.key -d
