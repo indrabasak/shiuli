@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 /**
  * {@code BookRepository} is a JPA book repository. It servers as an example
  * for springfox-data-rest.
- * <p/>
+ * <p>
  *
  * @author Indra Basak
  * @since 11/23/17

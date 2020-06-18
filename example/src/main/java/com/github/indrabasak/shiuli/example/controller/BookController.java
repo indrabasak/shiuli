@@ -23,7 +23,7 @@ import java.util.UUID;
 
 /**
  * {@code BookController} exposes book service.
- * <p/>
+ * <p>
  *
  * @author Indra Basak
  * @since 11/20/17

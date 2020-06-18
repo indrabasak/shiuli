@@ -3,7 +3,7 @@ package com.github.indrabasak.shiuli.example.error.exception;
 /**
  * {@code DataNotFoundException} exception is thrown when no item is found
  * during databsase look up.
- * <p/>
+ * <p>
  *
  * @author Indra Basak
  * @since 12/28/16

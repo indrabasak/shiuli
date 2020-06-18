@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * {@code DataConfiguration} configures an embedded database.
- * <p/>
+ * <p>
  *
  * @author Indra Basak
  * @since 11/23/17

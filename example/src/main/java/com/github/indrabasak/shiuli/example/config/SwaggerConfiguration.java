@@ -16,7 +16,7 @@ import static springfox.documentation.builders.RequestHandlerSelectors.basePacka
 
 /**
  * {@code SwaggerConfiguration} configures Swagger UI.
- * <p/>
+ * <p>
  *
  * @author Indra Basak
  * @since 12/27/17

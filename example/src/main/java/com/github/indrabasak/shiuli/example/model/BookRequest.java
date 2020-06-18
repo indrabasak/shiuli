@@ -6,7 +6,7 @@ import lombok.Getter;
 
 /**
  * {@code BookRequest} represents a request during book creation.
- * <p/>
+ * <p>
  *
  * @author Indra Basak
  * @since 12/7/17
