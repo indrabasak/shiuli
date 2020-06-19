@@ -92,6 +92,7 @@
                     let msg = response;
                     if (msg) {
                         let converter = new showdown.Converter();
+                        converter.setOption('tables', true)
                         _message = converter.makeHtml(msg);
 
                         let $home_link = $("#link-1");
