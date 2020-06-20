@@ -71,7 +71,8 @@
     function _populateTitle(jsonObj, navBrand) {
         let title = jsonObj["title"];
         $(navBrand).text('');
-        let $img = $('<img src=' + _logo + '/>');
+        let $img = $('<img>');
+        $img.attr('src', _logo);
         $(navBrand).append($img);
         $(navBrand).append(title);
     }
