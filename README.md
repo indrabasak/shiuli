@@ -7,13 +7,13 @@ of HTML, JavaScript, and CSS files packaged as a WebJars.
 
 # Maven
 
-The current version is `0.1.0`. To use Shiuli, add the following dependency to your `pom.xml.`
+The current version is `0.2.0`. To use Shiuli, add the following dependency to your `pom.xml.`
 
 ```xml
 <dependency>
     <groupId>com.github.indrabasak</groupId>
     <artifactId>shiuli</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 # Usage
