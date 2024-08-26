@@ -23,7 +23,7 @@
         <sonar.jacoco.itReportPath>target/jacoco-it.exec</sonar.jacoco.itReportPath>
         <sonar.jacoco.utReportPath>target/jacoco-ut.exec</sonar.jacoco.utReportPath>
         <springboot.version>2.3.0.RELEASE</springboot.version>
-        <swagger.version>2.9.2</swagger.version>
+        <swagger.version>2.10.0</swagger.version>
     </properties>
 
     <dependencyManagement>
